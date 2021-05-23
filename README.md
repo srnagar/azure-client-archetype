@@ -31,4 +31,5 @@ Running the above command will prompt you to enter details of the new client lib
    Configuration, CosmosDB etc. NOTE: Do not prefix `Azure` to the service name as this is already included in the
    template.
 7. Accept the package details when prompted to generate the maven project.
-8. Copy the generated project to appropriate service directory in azure-sdk-for-java repository.
+8. Copy the generated project to appropriate service directory in azure-sdk-for-java repository if this is run from 
+   an empty directory.
