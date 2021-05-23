@@ -1,0 +1,70 @@
+<archetype-descriptor
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+        name="azure-client-archetype">
+
+    <requiredProperties>
+        <!-- `groupId`: Maven groupId (e.g. com.azure) -->
+        <requiredProperty key="groupId">
+            <validationRegex>^[a-z0-9\.]+$</validationRegex>
+        </requiredProperty>
+
+        <!-- `artifactId`: Maven artifactId (e.g. azure-storage-blob) -->
+        <requiredProperty key="artifactId">
+            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+        </requiredProperty>
+
+        <!-- `package`: Root package name of this module (e.g. com.azure.storage.blob) -->
+        <requiredProperty key="package">
+            <validationRegex>^[a-z0-9\.]+$</validationRegex>
+        </requiredProperty>
+
+        <!-- `version`: Maven artifact version (e.g. 1.0.0-beta.1) -->
+        <requiredProperty key="version">
+            <validationRegex>^\d+(\.\d+){0,2}(\-beta\.\d+)?$</validationRegex>
+            <defaultValue>1.0.0-beta.1</defaultValue>
+        </requiredProperty>
+
+        <!-- `servicename`: Name of the Azure service that this client library is created for (e.g. Blob Storage) -->
+        <requiredProperty key="servicename"/>
+
+        <!-- `servicedirectory`: Name of the directory under sdk/ in azure-sdk-for-java repository where
+        this module will be placed-->
+        <requiredProperty key="servicedirectory"/>
+    </requiredProperties>
+
+    <fileSets>
+        <fileSet filtered="true">
+            <directory></directory>
+            <includes>
+                <include>README.md</include>
+                <include>CHANGELOG.md</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>src/main/java</directory>
+            <includes>
+                <include>module-info.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/main/java</directory>
+            <excludes>
+                <exclude>module-info.java</exclude>
+            </excludes>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>src/main/resources</directory>
+        </fileSet>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/test/java</directory>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>src/samples</directory>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>swagger</directory>
+        </fileSet>
+    </fileSets>
+</archetype-descriptor>
